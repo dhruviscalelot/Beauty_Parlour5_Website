@@ -112,65 +112,66 @@ export function Contact() {
                 onSubmit={handleSubmit}
               >
                 {({ isSubmitting }) => (
-                  <Form className="mt-6 space-y-4">
-                    <div className="">
+                  <Form className="mt-6">
+                    <div className="w-full p-1.5 xl:p-2.5 2xl:p-3.5 relative">
                       <label className="eyebrow">Name</label>
                       <Field
                         name="name"
                         type="text"
                         placeholder="Your full name"
-                        className="mt-1.5 w-full px-4 py-3 rounded-lg border border-border bg-ivory focus:outline-none focus:border-gold text-sm text-cocoa"
+                        className="input"
                       />
                       <ErrorMessage
                         name="name"
                         component="div"
-                        className="mt-1 text-xs text-rose font-medium"
+                        className="error"
                       />
                     </div>
 
-                    <div>
+
+                    <div className="w-full p-1.5 xl:p-2.5 2xl:p-3.5 relative">
                       <label className="eyebrow">Phone</label>
                       <Field
                         name="phone"
                         type="tel"
                         placeholder="+91 98765 43210"
-                        className="mt-1.5 w-full px-4 py-3 rounded-lg border border-border bg-ivory focus:outline-none focus:border-gold text-sm text-cocoa"
+                        className="input"
                       />
                       <ErrorMessage
                         name="phone"
                         component="div"
-                        className="mt-1 text-xs text-rose font-medium"
+                        className="error"
                       />
                     </div>
 
-                    <div>
+                    <div className="w-full p-1.5 xl:p-2.5 2xl:p-3.5 relative">
                       <label className="eyebrow">Email</label>
                       <Field
                         name="email"
                         type="email"
                         placeholder="you@example.com"
-                        className="mt-1.5 w-full px-4 py-3 rounded-lg border border-border bg-ivory focus:outline-none focus:border-gold text-sm text-cocoa"
+                        className="input"
                       />
                       <ErrorMessage
                         name="email"
                         component="div"
-                        className="mt-1 text-xs text-rose font-medium"
+                        className="error"
                       />
                     </div>
 
-                    <div>
+                    <div className="w-full p-1.5 xl:p-2.5 2xl:p-3.5 relative">
                       <label className="eyebrow">Message</label>
                       <Field
                         name="message"
                         as="textarea"
                         rows={4}
                         placeholder="Write your message or inquiry here..."
-                        className="mt-1.5 w-full px-4 py-3 rounded-lg border border-border bg-ivory focus:outline-none focus:border-gold text-sm text-cocoa"
+                        className="input"
                       />
                       <ErrorMessage
                         name="message"
                         component="div"
-                        className="mt-1 text-xs text-rose font-medium"
+                        className="error"
                       />
                     </div>
 
