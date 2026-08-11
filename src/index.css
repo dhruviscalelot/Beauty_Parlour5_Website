@@ -1,0 +1,233 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Luxé Salon — Premium Indian Beauty Parlor Design System
+ * Palette: soft blush, ivory cream, deep rose, antique gold
+ * Type:    Cormorant Garamond (display) + Inter (body)
+ */
+
+@theme inline {
+  --font-serif: "Cormorant Garamond", "Playfair Display", Georgia, serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 14px;
+  --radius-xl: 22px;
+  --radius-2xl: 32px;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-blush: var(--blush);
+  --color-blush-deep: var(--blush-deep);
+  --color-rose: var(--rose);
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
+  --color-ivory: var(--ivory);
+  --color-cocoa: var(--cocoa);
+}
+
+:root {
+  --radius: 0.75rem;
+
+  --ivory: oklch(0.985 0.008 70);
+  --blush: oklch(0.94 0.028 15);
+  --blush-deep: oklch(0.88 0.055 15);
+  --rose: oklch(0.55 0.14 15);
+  --gold: oklch(0.72 0.11 75);
+  --gold-soft: oklch(0.86 0.06 80);
+  --cocoa: oklch(0.28 0.03 30);
+
+  --background: var(--ivory);
+  --foreground: var(--cocoa);
+  --card: oklch(1 0 0);
+  --card-foreground: var(--cocoa);
+  --popover: oklch(1 0 0);
+  --popover-foreground: var(--cocoa);
+  --primary: var(--rose);
+  --primary-foreground: oklch(0.99 0.005 70);
+  --secondary: var(--blush);
+  --secondary-foreground: var(--cocoa);
+  --muted: oklch(0.96 0.012 60);
+  --muted-foreground: oklch(0.48 0.02 30);
+  --accent: var(--gold);
+  --accent-foreground: oklch(0.99 0.005 70);
+  --destructive: oklch(0.55 0.22 25);
+  --destructive-foreground: oklch(0.99 0 0);
+  --border: oklch(0.9 0.015 40);
+  --input: oklch(0.92 0.012 40);
+  --ring: var(--gold);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11";
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+
+  ::selection {
+    background: var(--blush-deep);
+    color: var(--cocoa);
+  }
+}
+
+@utility container-lux {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+  max-width: 1280px;
+}
+
+@media (min-width: 768px) {
+  .container-lux {
+    padding-inline: 2rem;
+  }
+}
+
+@utility eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 500;
+}
+
+@utility gold-divider {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--gold);
+}
+
+.gold-divider::before,
+.gold-divider::after {
+  content: "";
+  height: 1px;
+  width: 2.5rem;
+  background: linear-gradient(to right, transparent, var(--gold), transparent);
+}
+
+@utility btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.75rem;
+  background: var(--rose);
+  color: var(--primary-foreground);
+  border-radius: 999px;
+  font-size: 0.82rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 500;
+  transition: all 0.35s ease;
+  box-shadow: 0 10px 30px -12px color-mix(in oklab, var(--rose) 60%, transparent);
+}
+
+.btn-primary:hover {
+  background: color-mix(in oklab, var(--rose) 88%, black);
+  transform: translateY(-1px);
+}
+
+@utility btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.75rem;
+  border: 1px solid var(--gold);
+  color: var(--cocoa);
+  border-radius: 999px;
+  font-size: 0.82rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 500;
+  transition: all 0.35s ease;
+  background: transparent;
+}
+
+.btn-ghost:hover {
+  background: var(--blush);
+}
+
+@utility card-lux {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.card-lux:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 30px 60px -30px color-mix(in oklab, var(--rose) 25%, transparent);
+}
+
+@utility ornament-bg {
+  background:
+    radial-gradient(ellipse at top left, color-mix(in oklab, var(--blush) 60%, transparent), transparent 60%),
+    radial-gradient(ellipse at bottom right, color-mix(in oklab, var(--gold-soft) 40%, transparent), transparent 55%),
+    var(--ivory);
+}
+
+@keyframes fadeup {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@utility anim-fadeup {
+  animation: fadeup 0.8s ease both;
+}
+
+/* .error {
+  @apply absolute bottom-0 left-2.5 bg-white text-[10px] text-rose xl:left-3.5 2xl:left-5 ;
+} */
