@@ -34,9 +34,20 @@ export function Nav() {
   }, [pathname]);
 
 
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
   return (
     <header
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${scrolled
+      className={`sticky top-0 z-50 transition-all duration-500 ${scrolled
           ? "bg-ivory/85 backdrop-blur-md border-b border-border shadow-[0_10px_40px_-30px_rgba(0,0,0,0.15)]"
           : "bg-transparent"
         }`}
@@ -93,7 +104,7 @@ export function Nav() {
           onClick={() => setOpen(false)}
         />
         <aside
-          className={`absolute right-0 top-0 h-full w-[86%] max-w-sm bg-ivory p-8 shadow-2xl transition-transform duration-500 ${open ? "translate-x-0" : "translate-x-full"
+          className={`absolute right-0 top-0 h-full w-[86%] max-w-sm bg-ivory p-8 shadow-2xl transition-transform duration-500 overflow-y-auto ${open ? "translate-x-0" : "translate-x-full"
             }`}
         >
           <div className="flex items-center justify-between mb-10">
@@ -110,7 +121,7 @@ export function Nav() {
                 end={l.to === "/"}
                 onClick={() => setOpen(false)}
                 className={({ isActive }) =>
-                  `font-serif text-2xl hover:text-rose ${isActive ? "text-rose font-medium" : "text-cocoa"
+                  `font-serif text-xl sm:text-2xl hover:text-rose ${isActive ? "text-rose font-medium" : "text-cocoa"
                   }`
                 }
               >
@@ -118,7 +129,7 @@ export function Nav() {
               </NavLink>
             ))}
           </nav>
-          <div className="mt-10 flex flex-col gap-3">
+          <div className="mt-8 flex flex-col gap-3 pb-8">
             <Link to="/book" onClick={() => setOpen(false)} className="btn-primary">
               Book Appointment
             </Link>

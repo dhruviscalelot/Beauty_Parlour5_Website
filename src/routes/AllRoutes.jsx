@@ -17,7 +17,7 @@ function AllRoutes() {
 
   useEffect(() => {
     // Show loader ONLY on initial site load
-    const timer = setTimeout(() => setLoading(false), 800);
+    const timer = setTimeout(() => setLoading(false), 1300);
     return () => clearTimeout(timer);
   }, []);
 

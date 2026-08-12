@@ -277,3 +277,81 @@
 @utility anim-fadeup {
   animation: fadeup 0.8s ease both;
 }
+
+/* Luxury Mandala Loader Animations */
+@keyframes luxe-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes luxe-spin-reverse {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes luxe-pulse-glow {
+  0%,
+  100% {
+    transform: scale(0.97);
+    opacity: 0.85;
+    filter: drop-shadow(0 0 4px rgba(232, 180, 184, 0.4));
+  }
+  50% {
+    transform: scale(1.03);
+    opacity: 1;
+    filter: drop-shadow(0 0 14px rgba(232, 180, 184, 0.85));
+  }
+}
+
+@keyframes float-particle {
+  0%,
+  100% {
+    transform: translateY(0px) translateX(0px);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateY(-8px) translateX(4px);
+    opacity: 0.9;
+  }
+}
+
+@keyframes text-shimmer {
+  to {
+    background-position: 200% center;
+  }
+}
+
+@utility animate-luxe-spin {
+  animation: luxe-spin 16s linear infinite;
+  transform-origin: center;
+}
+
+@utility animate-luxe-spin-reverse {
+  animation: luxe-spin-reverse 24s linear infinite;
+  transform-origin: center;
+}
+
+@utility animate-mandala-pulse {
+  animation: luxe-pulse-glow 4s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@utility animate-particle {
+  animation: float-particle 3s ease-in-out infinite;
+}
+
+@utility animate-text-shimmer {
+  animation: text-shimmer 3s infinite linear;
+  background: linear-gradient(90deg, #e8b4b8 0%, #ffffff 50%, #e8b4b8 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
